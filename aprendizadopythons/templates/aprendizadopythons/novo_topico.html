@@ -1,0 +1,13 @@
+{% extends "aprendizadopythons/base.html" %}
+
+{% block content %}
+    <p>Adicione um novo Topico</p>
+
+    <form action="{% url 'novo_topico' %}" method ="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button name="submit">Adicionar</button>
+
+    </form>
+
+{% endblock content %}

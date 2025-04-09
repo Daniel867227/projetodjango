@@ -1,0 +1,25 @@
+{% extends "aprendizadopythons/base.html" %} {% block content %}
+
+<p>Topico: {{ topico.text }}</p>
+
+<p>Anotações</p>
+
+<p>
+  <a href="{% url 'nova_anotacao' topico.id %}"> Adicione uma Nova Anotação</a>
+</p>
+
+<ul>
+  {% for entrada in entradas %}
+  <li>
+    <p>{{entrada.text}}</p>
+    <p>{{entrada.date_added | date:'d M/ y H:i'}}</p>
+    <a href="{% url 'edit_entrada' entrada.id %}">Editar</a>
+    <a href="{% url 'delete_entrada' entrada.id %}">delete</a>
+    
+  </li>
+  {% empty %}
+  <li>Sem registros</li>
+  {%endfor%}
+</ul>
+
+{% endblock content %}

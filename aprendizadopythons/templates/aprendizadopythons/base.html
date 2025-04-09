@@ -1,0 +1,13 @@
+<a href="{% url 'index' %}">Aprendendo Python</a> -
+<a href="{% url 'topicos'%}">Topicos</a> 
+{% if user.is_authenticated %}
+    Olá, {{user.username}}
+{% else %}
+    <a href="{% url 'login'%}">Entrar</a>
+{% endif%}
+
+{% block content %}{% endblock content %}
+
+<!--o block serve para colocar o conteudo da pagina.
+enquannto os demais informacoes do base.html fora do block serao herdadas pela pagina-->
+
