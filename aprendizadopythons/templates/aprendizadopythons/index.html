@@ -9,9 +9,21 @@
 
 <body>
     {% extends "aprendizadopythons/base.html" %} 
+
+    {% block header %}
+        <div class="jumbotron">
+            <h1> Acompanhe seu aprendizado.</h1>
+        </div>
+    {% endblock header %}
     
     {% block content %}
-        <h2>Django</h2>
+        {% if user.is_authenticated %}
+            <h2>
+                 <p>Seja bem vindo</p>
+            </h2>
+        {% else %}
+            <a href="{% url 'register' %}">Crie uma conta</a> para utilizar agora!
+        {% endif %}
     {% endblock content %}
 </body>
 

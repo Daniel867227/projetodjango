@@ -9,8 +9,8 @@ urlpatterns = [
     path('topico/<topico_id>/', views.topico, name='topico'),
     path('novo_topico', views.novo_topico, name='novo_topico'),
     path('nova_anotacao/<topico_id>/', views.nova_anotacao, name='nova_anotacao'),
-    path('edit_entrada/<entrada_id>', views.edit_entrada, name='edit_entrada'),
-    path('delete_entrada/<entrada_id>', views.delete_entrada, name='delete_entrada'),
+    path('edit_entrada/<entrada_id>/', views.edit_entrada, name='edit_entrada'),
+    path('delete_entrada/<entrada_id>/', views.delete_entrada, name='delete_entrada'),
 ]
 
 """index é uma funcao que crio dentro de views"""

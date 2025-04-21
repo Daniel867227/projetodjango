@@ -39,6 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'aprendizadopythons',
     'users',
+
+    #apps de terceiros
+    'bootstrap3',
 ]
 
 MIDDLEWARE = [
@@ -123,3 +126,13 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+LOGIN_URL = '/users/login'
+
+# Usado para para mostrar para o django qual é a pagina
+# de login. Pois usamos o decorator e importamos dele um @loginrequired onde encaminha para uma pagina de login caso o usuario nao esteja logado, restringindo o acesso a pagina de topicos
+
+#para poder usar o bootstrap3
+BOOTSTRAP3 ={
+    'include_jquery': True,
+}
