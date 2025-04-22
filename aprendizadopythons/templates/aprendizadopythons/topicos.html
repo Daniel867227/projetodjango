@@ -1,13 +1,15 @@
 {% extends "aprendizadopythons/base.html" %}
 
+{% block header %}
+    <h1>Tópicos</h1>
+{% endblock header %}
+
 {% block content %}
-    <br>
-    <br>
-    Tópicos:
+    
     <ul>
         {% for topico in topicos %}
             <li>
-                <a href="{% url 'topico' topico.id %}">{{ topico }}</a>
+                <h3><a href="{% url 'topico' topico.id %}">{{ topico }}</a></h3>
             </li>
         {% empty%}
             <li>Não há tópicos na lista</li>
@@ -15,7 +17,7 @@
         {% endfor %}
     </ul>
 
-    <a href="{% url 'novo_topico' %}">Adicionar Novos Topicos</a> <br>
+    <h3><a href="{% url 'novo_topico' %}">Adicionar Novos Topicos</a> <br></h3>
   
 
 {% endblock content%}

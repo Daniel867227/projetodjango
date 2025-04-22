@@ -1,14 +1,23 @@
 {% extends "aprendizadopythons/base.html"%}
 
+{% load bootstrap3 %}
+
+{% block header %}
+    <h1><a href="{% url 'topico' topico.id  %}">{{ topico }}</a></h1>
+{% endblock header%}
+
 {% block content %}
 
-<p><a href="{% url 'topico' topico.id  %}">{{ topico }}</a></p>
-<p>Editar Anotação:</p>
 
-<form action="{% url 'edit_entrada' entrada.id %}" method="post">
+<h2>Editar Anotação:</h2>
+
+<form action="{% url 'edit_entrada' entrada.id %}" method="post" class="form">
     {% csrf_token %}
-    {{ form.as_p }}
-    <button name="submit">Salvar</button>
+    {% bootstrap_form form %}
+
+    {% buttons %}
+        <button name="submit" class="btn btn-primary">Salvar</button>
+    {% endbuttons %}
 
 </form>
 

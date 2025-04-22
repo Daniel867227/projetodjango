@@ -1,25 +1,39 @@
-{% extends "aprendizadopythons/base.html" %} {% block content %}
+{% extends "aprendizadopythons/base.html" %} 
 
-<p>Topico: {{ topico.text }}</p>
+{% block header %}
+  <h2>Topico: {{ topico.text }}</h2>
+{% endblock header %}
 
-<p>Anotações</p>
 
-<p>
-  <a href="{% url 'nova_anotacao' topico.id %}"> Adicione uma Nova Anotação</a>
-</p>
+{% block content %}
 
-<ul>
-  {% for entrada in entradas %}
-  <li>
-    <p>{{entrada.text}}</p>
-    <p>{{entrada.date_added | date:'d M/ y H:i'}}</p>
-    <a href="{% url 'edit_entrada' entrada.id %}">Editar</a>
-    <a href="{% url 'delete_entrada' entrada.id %}">delete</a>
+  <p>
+    <h2><a href="{% url 'nova_anotacao' topico.id %}"> Adicione uma Nova Anotação</a></h2>
+  </p>
+
+ 
+    {% for entrada in entradas %}
     
-  </li>
-  {% empty %}
-  <li>Sem registros</li>
-  {%endfor%}
-</ul>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3>
+            {{entrada.text}}
+            <small>
+              <a href="{% url 'edit_entrada' entrada.id %}">Editar</a>
+              <a href="{% url 'delete_entrada' entrada.id %}">delete</a>
+            </small>
+        </h3>
+        </div>
+
+        <div class="panel-body">
+          {{entrada.date_added | date:'d M/ y H:i' | linebreaks}}
+        </div>
+      </div>
+      
+   
+    {% empty %}
+      <h3>Sem registros!</h3>
+    {%endfor%}
+
 
 {% endblock content %}

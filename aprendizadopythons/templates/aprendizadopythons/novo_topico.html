@@ -1,13 +1,23 @@
 {% extends "aprendizadopythons/base.html" %}
 
+{% load bootstrap3%}
+<!--serve para carregar o bootstrap na pagina para carregar as tags proprias do bootstrap-->
+
+{% block header %}
+<h2>Adicione um novo Topico</h2>
+{% endblock header %}
+
 {% block content %}
-    <p>Adicione um novo Topico</p>
+ 
 
-    <form action="{% url 'novo_topico' %}" method ="post">
+    <form action="{% url 'novo_topico' %}" method ="post" class="form">
         {% csrf_token %}
-        {{ form.as_p }}
-        <button name="submit">Adicionar</button>
+        {% bootstrap_form form %}
+        <!--Essa tag acima é uma tag bootstrap -->
 
+        {% buttons %}
+        <button name="submit" class="btn btn-primary">Adicionar</button>
+        {% endbuttons %}
     </form>
 
 {% endblock content %}
