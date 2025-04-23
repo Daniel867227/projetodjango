@@ -8,16 +8,16 @@
 {% endblock header %}
 
 {% block content %}
- 
 
-    <form action="{% url 'novo_topico' %}" method ="post" class="form">
-        {% csrf_token %}
-        {% bootstrap_form form %}
-        <!--Essa tag acima é uma tag bootstrap -->
 
-        {% buttons %}
-        <button name="submit" class="btn btn-primary">Adicionar</button>
-        {% endbuttons %}
-    </form>
+<form action="{% url 'novo_topico' %}" method="post" class="form">
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    <!--Essa tag acima é uma tag bootstrap -->
+
+    {% buttons %}
+    <button name="submit" class="btn btn-primary">Adicionar</button>
+    {% endbuttons %}
+</form>
 
 {% endblock content %}

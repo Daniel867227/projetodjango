@@ -8,23 +8,24 @@
 </head>
 
 <body>
-    {% extends "aprendizadopythons/base.html" %} 
+    {% extends "aprendizadopythons/base.html" %}
 
     {% block header %}
-        <div class="jumbotron">
-            <h1> Acompanhe seu aprendizado.</h1>
-        </div>
+    <div class="jumbotron">
+        <h1> Acompanhe seu aprendizado.</h1>
+    </div>
     {% endblock header %}
-    
+
     {% block content %}
-        {% if user.is_authenticated %}
-            <h2>
-                 <h2>Seja bem vindo {{user.username}}</h2>
-            </h2>
-        {% else %}
-            <h2><a href="{% url 'register' %}">Crie uma conta</a> para utilizar agora, ou faça o seu <a href="{% url 'login' %}">Login</a></h2>
-    
-        {% endif %}
+    {% if user.is_authenticated %}
+    <h2>
+        <h2>Seja bem vindo {{user.username}}</h2>
+    </h2>
+    {% else %}
+    <h2><a href="{% url 'register' %}">Crie uma conta</a> para utilizar agora, ou faça o seu <a
+            href="{% url 'login' %}">Login</a></h2>
+
+    {% endif %}
     {% endblock content %}
 </body>
 

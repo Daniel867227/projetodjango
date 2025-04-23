@@ -2,18 +2,19 @@
 
 {% block content %}
 
-    <form action="{% url 'register' %}" method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        
-        <button name="submit">Registrar</button>
-        <input type="hidden" name="next" value="{% url 'index' %}"/>
+<form action="{% url 'register' %}" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
 
-    </form>
+    <button name="submit">Registrar</button>
+    <input type="hidden" name="next" value="{% url 'index' %}" />
 
-    {% if form.is_valid %}
-        <div class="alert alert-warning" role="alert">
-            <h3>Usuario cadastrado com sucesso. <a href="{% url 'login' %}">Clique aqui</a> e Faça o login </h3>
-        </div>
-    {% endif %}
+</form>
+
+{% if form.is_valid %}
+<div class="alert alert-warning" role="alert">
+    <h3>Usuario cadastrado com sucesso. <a href="{% url 'login' %}">Clique aqui</a> e Faça o login </h3>
+</div>
+{% endif %}
+
 {% endblock content %}

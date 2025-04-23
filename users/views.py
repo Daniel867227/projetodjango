@@ -6,26 +6,22 @@ from django.shortcuts import render
 from django.contrib.auth.forms import UserCreationForm
 
 
-
-
 def logout_view(request):
+    """Faz o logout"""
     logout(request)
     return HttpResponseRedirect(reverse('index'))
 
+
 def register(request):
+    """Registra novo usuário"""
     if request.user.is_authenticated:
         return HttpResponseRedirect(reverse('index'))
-    
+
     if request.method != 'POST':
         form = UserCreationForm()
     else:
-        form = UserCreationForm(data =request.POST)
+        form = UserCreationForm(data=request.POST)
         if form.is_valid():
             new_user = form.save()
-            #authenticate_user = authenticate(username=new_user.username, password=request.POST['password1'])
-            #login(request, authenticate_user)
-            #return HttpResponseRedirect(reverse('index'))
-
-    context = {'form': form }
+    context = {'form': form}
     return render(request, 'users/register.html', context)
-
